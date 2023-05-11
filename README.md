@@ -33,4 +33,9 @@ This is the sample project for new your times api integration
 - Articles function calls usescase of getting articles 
 - UseCase will verify any business conditions and get data from repository 
 - Repository is interface which return list of articles main object 
-- Repository and repoImp class which do the network call and return data from network or it could just get data from local db 
+- Repository and repoImp class which do the network call and return data from network or it could just get data from local db
+- List is shown using recycler View 
+- Click on its item event triggered 
+- Using Navigation Editor navigated to details screen and send click data object to that screen 
+- Using Navigation Editor navigated to details screen and send click data object to that screen 
+- Detail Screen will collect data given by previous screen and load into the UI 
