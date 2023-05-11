@@ -1,6 +1,5 @@
 package com.nytimes.poc.arch.base
 
-import com.nytimes.poc.arch.managers.AlertManager
 import android.annotation.SuppressLint
 import android.content.pm.ActivityInfo
 import android.os.Bundle
@@ -14,6 +13,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import com.kaopiz.kprogresshud.KProgressHUD
+import com.nytimes.poc.managers.AlertManager
 
 abstract class BaseActivity<DB : ViewDataBinding> : AppCompatActivity() {
 

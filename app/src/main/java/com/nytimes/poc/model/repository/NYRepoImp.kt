@@ -19,7 +19,7 @@ class NYRepoImp @Inject constructor(
     override suspend fun mostViewed(): RequestResult<GeneralResponseModel<ArrayList<Article>>?> {
         val response = getResult({
             api.mostViewed(apiKey= BuildConfig.NY_API_KEY)
-        }, networkUtils, errorMessages = ErrorMessages())
+        }, networkUtils, errorMessages = ErrorMessages(netWorkError = "Network Error", badRequest = "Bad Request"))
         return response    }
 
 }

@@ -1,7 +1,11 @@
 package com.nytimes.poc.arch.di
 
+import android.util.Log
 import com.nytimes.poc.model.interceptors.BaseHeadersInterceptor
 import com.google.gson.GsonBuilder
+import com.ihsanbal.logging.Level
+import com.ihsanbal.logging.LoggingInterceptor
+import com.nytimes.poc.utils.Extensions.ignoreAllSSLErrors
 import com.nytimes.poc.utils.URLs
 import dagger.Module
 import dagger.Provides
@@ -20,7 +24,16 @@ object NetworkModule {
     @Provides
     fun providesBaseHeadersInterceptor(): BaseHeadersInterceptor = BaseHeadersInterceptor()
 
-
+    @Singleton
+    @Provides
+    fun provideFancyLogger(
+    ): LoggingInterceptor {
+        return LoggingInterceptor.Builder()
+            .setLevel(Level.BASIC)
+            .tag("HTTP_REQUEST")
+            .log(Log.VERBOSE)
+            .build()
+    }
     @RetrofitNY
     @Singleton
     @Provides
@@ -36,8 +49,11 @@ object NetworkModule {
     @Provides
     fun providesMobileHttpClient(
         baseHeaderInterceptor: BaseHeadersInterceptor,
-    ): OkHttpClient {
+        fancyLogger: LoggingInterceptor,
+        ): OkHttpClient {
         return OkHttpClient().newBuilder()
+            .addInterceptor(fancyLogger)
+            .ignoreAllSSLErrors()
             .addInterceptor(baseHeaderInterceptor)
             .connectTimeout(45, TimeUnit.SECONDS).writeTimeout(45, TimeUnit.SECONDS)
             .readTimeout(45, TimeUnit.SECONDS).retryOnConnectionFailure(false).build()

@@ -1,6 +1,5 @@
 package com.nytimes.poc.arch.base
 
-import com.nytimes.poc.arch.managers.AlertManager
 import com.nytimes.poc.utils.KeyboardUtils.activateHideKeyboardUponTouchingScreen
 import android.app.KeyguardManager
 import android.content.Context
@@ -20,6 +19,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.kaopiz.kprogresshud.KProgressHUD
+import com.nytimes.poc.managers.AlertManager
 
 abstract class BaseFragment<DB : ViewDataBinding>(@LayoutRes private val layoutID: Int) :
     Fragment() {

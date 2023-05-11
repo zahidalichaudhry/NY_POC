@@ -13,7 +13,7 @@ import dagger.hilt.components.SingletonComponent
 object UseCasesModule {
 
   @Provides
-  fun MostPopularMostViewedUserCase(repository: NYRepo): MostPopularMostViewedUserCase =
+  fun provideMostPopularMostViewedUserCase(repository: NYRepo): MostPopularMostViewedUserCase =
     MostPopularMostViewedUserCase(repository)
 
 }

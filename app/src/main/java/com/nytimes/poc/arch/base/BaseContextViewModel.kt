@@ -1,6 +1,6 @@
 package com.nytimes.poc.arch.base
 
-import com.nytimes.poc.utils.universal.SingleLiveEvent
+import com.nytimes.poc.utils.SingleLiveEvent
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData

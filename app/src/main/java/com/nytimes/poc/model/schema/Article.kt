@@ -75,4 +75,7 @@ data class Article(
       val width: Int
     ) : Parcelable
   }
+  fun getThumbnail():String?{
+    return media.firstOrNull()?.mediaMetadata?.firstOrNull()?.url
+  }
 }

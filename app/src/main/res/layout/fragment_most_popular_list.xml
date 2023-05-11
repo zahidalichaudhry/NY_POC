@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <import type="android.view.View" />
+
+    <variable
+      name="viewModel"
+      type="com.nytimes.poc.ui.mostpopular.MostPopularListViewModel" />
+
+    <import type="com.nytimes.poc.utils.binding_adapters.AdapterType" />
+
+  </data>
+
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/article_rv"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:orientation="vertical"
+      android:paddingHorizontal="@dimen/dimen_8dp"
+      android:paddingVertical="@dimen/dimen_8dp"
+      android:scrollbars="vertical"
+      app:adapterType="@{AdapterType.ARTICLE_ADAPTER}"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:recyclerItems="@{viewModel.viewState.articlesListState}"
+      app:spanCount="1"
+      tools:itemCount="4"
+      tools:listitem="@layout/item_artical" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <import type="android.view.View" />
+
+    <variable
+      name="viewModel"
+      type="com.nytimes.poc.ui.article_detail.ArticleDetailViewModel" />
+
+
+  </data>
+
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:paddingHorizontal="@dimen/dimen_8dp"
+    android:paddingVertical="@dimen/dimen_8dp"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.imageview.ShapeableImageView
+      android:id="@+id/image_profile"
+      loadImageFromURL="@{viewModel.viewState.article.thumbnail}"
+      android:layout_width="@dimen/dimen_60dp"
+      android:layout_height="@dimen/dimen_60dp"
+      android:layout_gravity="center"
+      android:layout_marginVertical="@dimen/dimen_8dp"
+      android:scaleType="centerCrop"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:shapeAppearanceOverlay="@style/ImageCornerSize50PercentWithWhiteStrock">
+
+    </com.google.android.material.imageview.ShapeableImageView>
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/materialTextView"
+      android:layout_width="0dp"
+      android:layout_marginHorizontal="@dimen/dimen_8dp"
+      android:layout_height="wrap_content"
+      android:maxLines="2"
+      android:text="@{viewModel.viewState.article.title}"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@+id/image_profile"
+      app:layout_constraintTop_toTopOf="@+id/image_profile"
+      tools:text="Calcium Deficiency" />
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/textView"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:paddingVertical="@dimen/dimen_8dp"
+      android:text="@{viewModel.viewState.article.byline}"
+      app:layout_constraintEnd_toEndOf="@+id/materialTextView"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/materialTextView2" />
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/materialTextView2"
+      android:layout_width="0dp"
+      android:paddingVertical="@dimen/dimen_8dp"
+      android:layout_height="wrap_content"
+      android:text="@{viewModel.viewState.article.abstract}"
+      app:layout_constraintEnd_toEndOf="@+id/materialTextView"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/image_profile" />
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/textView2"
+      android:paddingVertical="@dimen/dimen_8dp"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="@{viewModel.viewState.article.publishedDate}"
+      app:layout_constraintEnd_toEndOf="@+id/materialTextView"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textView"
+      tools:text="testing" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
