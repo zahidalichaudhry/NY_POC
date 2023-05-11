@@ -76,7 +76,7 @@ abstract class BaseFragment<DB : ViewDataBinding>(@LayoutRes private val layoutI
 
     }
 
-    fun observeDataContextViewModelEvents(viewModel: BaseContextViewModel<*>) {
+    fun observeDataContextViewModelEvents(viewModel: BaseViewModel<*>) {
         viewModel.obDataEvent.observe(viewLifecycleOwner) {
             it.getEventIfNotHandled()?.let { event ->
                 when (event) {

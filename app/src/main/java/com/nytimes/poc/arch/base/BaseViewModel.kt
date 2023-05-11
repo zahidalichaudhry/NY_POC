@@ -5,9 +5,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 
-abstract class BaseContextViewModel<T>(application: Application) : AndroidViewModel(application) {
-    var viewModelContext: Application = application
+abstract class BaseViewModel<T>() : ViewModel() {
 
 
     private val _dataEvent: SingleLiveEvent<BaseEvent<BaseDataEvents>> = SingleLiveEvent()

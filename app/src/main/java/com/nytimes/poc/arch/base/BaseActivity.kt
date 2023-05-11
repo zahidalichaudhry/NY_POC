@@ -76,7 +76,7 @@ abstract class BaseActivity<DB : ViewDataBinding> : AppCompatActivity() {
         dailog?.dismiss()
     }
 
-    fun observeDataContextViewModelEvents(viewModel: BaseContextViewModel<*>) {
+    fun observeDataContextViewModelEvents(viewModel: BaseViewModel<*>) {
         viewModel.obDataEvent.observe(this) {
             it.getEventIfNotHandled()?.let { event ->
                 when (event) {
