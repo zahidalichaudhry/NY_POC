@@ -36,6 +36,6 @@ This is the sample project for new your times api integration
 - Repository and repoImp class which do the network call and return data from network or it could just get data from local db
 - List is shown using recycler View 
 - Click on its item event triggered 
-- Using Navigation Editor navigated to details screen and send click data object to that screen 
-- Using Navigation Editor navigated to details screen and send click data object to that screen 
+- Using Navigation Editor navigated to details screen and send click data object send to that screen 
+- Using Navigation Editor navigated to details screen and send click data object send to that screen 
 - Detail Screen will collect data given by previous screen and load into the UI 
